@@ -214,10 +214,12 @@ static void print_tcpinterarrivaltime ()
 
 }
 static void print_tcp(FILE* dst, const struct ip* ip, const struct tcphdr* tcp, qd_real timestamp, int payload_size){
-        tcp++;
+       // tcp++;
 	
-        char tcpsourcebuffer[40];
-        char tcpdestinationbuffer[40];
+        char tcpsourcebuffer[80];
+	memset (tcpsourcebuffer,0,80);
+        char tcpdestinationbuffer[80];
+	memset(tcpdestinationbuffer,0,80);
         string tcpbuffer;
 	//fprintf(dst, "] %s:%d ",inet_ntoa(ip->ip_src),(u_int16_t)ntohs(tcp->source));
 	//fprintf(dst, "--> %s:%d",inet_ntoa(ip->ip_dst),(u_int16_t)ntohs(tcp->dest));
@@ -239,9 +241,11 @@ static void print_tcp(FILE* dst, const struct ip* ip, const struct tcphdr* tcp, 
 }
 
 static void print_udp(FILE* dst, const struct ip* ip, const struct udphdr* udp, qd_real timestamp, int payload_size){
-         udp++;
+        // udp++;
         char udpsourcebuffer[80];
+	memset (udpsourcebuffer,0,80);
         char udpdestinationbuffer[80];
+	memset(udpdestinationbuffer,0,80);
         string udpbuffer;
 	//fprintf(dst, "UDP(HDR[8]DATA[%d]):\t %s:%d ",(u_int16_t)(ntohs(udp->len)-8),inet_ntoa(ip->ip_src),(u_int16_t)ntohs(udp->source));
 	//fprintf(dst, " -> %s:%d",inet_ntoa(ip->ip_dst),(u_int16_t)ntohs(udp->dest));
