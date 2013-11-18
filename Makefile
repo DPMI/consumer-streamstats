@@ -11,10 +11,10 @@ OBJECTd= main.o
 targetd= stream_statistics
 
 all: $(OBJECTd)	
-	$(CXX) -o $(targetd) $(LDFLAGS) $(OBJECTd) $(shell pkg-config libcap_utils-0.7 libcap_filter-0.7 conserver-0.7 --libs) -lqd
+	$(CXX) -o $(targetd) $(LDFLAGS) $(OBJECTd) $(shell pkg-config libcap_utils-0.7 libcap_filter-0.7 --libs) -lqd
 
 clean:
 	rm -f *.o $(OBJECTd)
 
 main.o: main.cpp
-	$(CXX) $(CFLAGS) $(shell pkg-config libcap_stream-0.7 conserver-0.7 --cflags) -c main.cpp -o main.o
+	$(CXX) $(CFLAGS) $(shell pkg-config libcap_stream-0.7 --cflags) -c main.cpp -o main.o
