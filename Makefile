@@ -16,5 +16,8 @@ all: $(OBJECTd)
 clean:
 	rm -f *.o $(OBJECTd)
 
+install:
+	cp $(targetd) /usr/local/bin/streamstats
+
 main.o: main.cpp
 	$(CXX) $(CFLAGS) $(shell pkg-config libcap_stream-0.7 --cflags) -c main.cpp -o main.o
