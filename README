@@ -1,4 +1,5 @@
 Requirements:
  libqd-dev
  build-essentials
- 
+ libboost-all-dev
+
